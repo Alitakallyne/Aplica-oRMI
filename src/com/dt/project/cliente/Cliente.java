@@ -17,14 +17,28 @@ public class Cliente {
         }
     }
     
-    public double totalDaSoma(double a, double b) throws RemoteException{
-        return msi.soma(a, b);
+    public int[] totalDoVetor(int vet[]) throws RemoteException{
+        return msi.vetores(vet);
     }
     
     public static void main(String[] args) {
         Cliente c  = new Cliente();
+        int[] vet = new int[10];
+        int[] vet2 = new int[10];
         try {
-            System.out.println("A soma é: "+c.totalDaSoma(2, 5));
+            for(int i = 0; i <10 ; i++){
+                vet[i] = (int) (Math.random()*10);
+            }
+            vet2 = c.totalDoVetor(vet);
+            System.out.println("\n\n DESORDENADO\n\n");
+            for(int i = 0; i < vet2.length;i++){
+                System.out.println("Valor: \n"+vet[i]);
+            }
+            System.out.println("\n\n ORDENADO\n\n");
+            for(int i = 0; i < vet2.length;i++){
+                System.out.println("Valor: \n"+vet2[i]);
+            }
+            //System.out.println("A soma é: "+c.totalDoVetor(vet));
         } catch (Exception e) {
             System.out.println("Excepção  durante chamadas remotas: "+e);
         }
