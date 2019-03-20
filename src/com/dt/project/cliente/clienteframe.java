@@ -1,6 +1,6 @@
-
 package com.dt.project.cliente;
 
+import static com.dt.project.cliente.Cliente.getMacAddress;
 import com.dt.project.rmi.InterfaceRMI;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
@@ -132,11 +132,16 @@ public class clienteframe extends javax.swing.JFrame {
             vetor[i] = (int) (Math.random() * 1000);
             jTextArea2.append(" " + vetor[i]);
         }
+
         try {
-            String t = c.totalDoVetor(vetor);
+            String v = getMacAddress();
+            String t = c.totalDoVetor(vetor, v);
+
             jTextArea1.setText(t);
         } catch (RemoteException ex) {
             System.out.println("Ok!");
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
