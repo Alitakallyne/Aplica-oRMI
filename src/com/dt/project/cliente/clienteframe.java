@@ -14,9 +14,11 @@ import java.util.logging.Logger;
  *
  * @author DELL
  */
-public class clienteframe extends javax.swing.JFrame{
-static int quantidade;
-static Cliente c  = new Cliente();
+public class clienteframe extends javax.swing.JFrame {
+
+    static int quantidade;
+    static Cliente c = new Cliente();
+
     /**
      * Creates new form clienteframe
      */
@@ -133,19 +135,19 @@ static Cliente c  = new Cliente();
         // TODO add your handling code here:
         jTextArea2.setText(" ");
         jTextArea1.setText(" ");
-        quantidade=Integer.parseInt(jTextField1.getText());
+        quantidade = Integer.parseInt(jTextField1.getText());
         int[] vetor = new int[quantidade];
         for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = (int) (Math.random()*1000);
-            jTextArea2.append(" "+vetor[i]);
+            vetor[i] = (int) (Math.random() * 1000);
+            jTextArea2.append(" " + vetor[i]);
         }
-    try {
-        String t = c.totalDoVetor(vetor);
-        jTextArea1.setText(t);
-    } catch (RemoteException ex) {
-        System.out.println("Ok!");
-    }
-      
+        try {
+            String t = c.totalDoVetor(vetor);
+            jTextArea1.setText(t);
+        } catch (RemoteException ex) {
+            System.out.println("Ok!");
+        }
+
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
@@ -181,11 +183,9 @@ static Cliente c  = new Cliente();
                 new clienteframe().setVisible(true);
             }
         });
-            
-      
-       
+
     }
-    private InterfaceRMI msi; 
+    private InterfaceRMI msi;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
